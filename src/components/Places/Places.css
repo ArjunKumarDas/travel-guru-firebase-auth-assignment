@@ -1,0 +1,17 @@
+img{
+    width: 280px;
+    height: 200px;
+}
+
+.place-bg {
+   border-radius: 10px;
+   margin-left: 17px;
+}
+.place-bg:hover {
+    cursor: pointer;
+    border: 2px solid rgb(255, 166, 0);
+    margin-left: 17px;
+ }
+ .img-radius {
+     border-radius: 10px;
+ }

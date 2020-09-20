@@ -1,0 +1,77 @@
+const hotelData = [
+    { 
+     id: '1',
+       roomImg:'https://thumbs.dreamstime.com/b/luxury-hotel-room-business-bed-kitchen-73132780.jpg',
+       title: 'Light bright airy stylis apt & safe peaceful stay',
+       capacity: '4 gustets, 2 bedrooms, wifi Air consition and kitchen  Cancellation flexibity available',
+       rating: '*4.9(20)',
+       price: '$34/',
+   },
+   {
+       id: '2',
+       roomImg:'https://media.nomadicmatt.com/hotelreview1a.jpg',
+       title: 'Light bright airy stylis apt & safe peaceful stay',
+       capacity: '4 gustets, 2 bedrooms, wifi Air consition and kitchen  Cancellation flexibity available',
+       rating: '*4.9(20)',
+       price: '$34/',
+   },
+   {
+       id: '3',
+       roomImg:'https://i2.wp.com/thepointsguy.com/wp-content/uploads/2020/02/AC-Hotel-Park-City.jpg?fit=1440%2C960px&ssl=1',
+       title: 'Light bright airy stylis apt & safe peaceful stay',
+       capacity: '4 gustets, 2 bedrooms, wifi Air consition and kitchen  Cancellation flexibity available',
+       rating: '*4.9(20)',
+       price: '$34/',
+   },
+   { 
+    id: '4',
+      roomImg:'https://thumbs.dreamstime.com/b/luxury-hotel-room-business-bed-kitchen-73132780.jpg',
+      title: 'Light bright airy stylis apt & safe peaceful stay',
+      capacity: '4 gustets, 2 bedrooms, wifi Air consition and kitchen  Cancellation flexibity available',
+      rating: '*4.9(20)',
+      price: '$34/',
+  },
+  {
+      id: '5',
+      roomImg:'https://media.nomadicmatt.com/hotelreview1a.jpg',
+      title: 'Light bright airy stylis apt & safe peaceful stay',
+      capacity: '4 gustets, 2 bedrooms, wifi Air consition and kitchen  Cancellation flexibity available',
+      rating: '*4.9(20)',
+      price: '$34/',
+  },
+  {
+      id: '6',
+      roomImg:'https://i2.wp.com/thepointsguy.com/wp-content/uploads/2020/02/AC-Hotel-Park-City.jpg?fit=1440%2C960px&ssl=1',
+      title: 'Light bright airy stylis apt & safe peaceful stay',
+      capacity: '4 gustets, 2 bedrooms, wifi Air consition and kitchen  Cancellation flexibity available',
+      rating: '*4.9(20)',
+      price: '$34/',
+  },
+  { 
+    id: '7',
+      roomImg:'https://thumbs.dreamstime.com/b/luxury-hotel-room-business-bed-kitchen-73132780.jpg',
+      title: 'Light bright airy stylis apt & safe peaceful stay',
+      capacity: '4 gustets, 2 bedrooms, wifi Air consition and kitchen  Cancellation flexibity available',
+      rating: '*4.9(20)',
+      price: '$34/',
+  },
+  {
+      id: '8',
+      roomImg:'https://media.nomadicmatt.com/hotelreview1a.jpg',
+      title: 'Light bright airy stylis apt & safe peaceful stay',
+      capacity: '4 gustets, 2 bedrooms, wifi Air consition and kitchen  Cancellation flexibity available',
+      rating: '*4.9(20)',
+      price: '$34/',
+  },
+  {
+      id: '9',
+      roomImg:'https://i2.wp.com/thepointsguy.com/wp-content/uploads/2020/02/AC-Hotel-Park-City.jpg?fit=1440%2C960px&ssl=1',
+      title: 'Light bright airy stylis apt & safe peaceful stay',
+      capacity: '4 gustets, 2 bedrooms, wifi Air consition and kitchen  Cancellation flexibity available',
+      rating: '*4.9(20)',
+      price: '$34/',
+  },
+   
+]
+
+export default hotelData;

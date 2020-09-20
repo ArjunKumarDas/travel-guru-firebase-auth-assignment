@@ -1,0 +1,26 @@
+.login{
+    margin-top: 150px;
+    margin-left: 35%;
+}
+
+.login-from{
+    padding-top: 20px;
+    padding-left: 20px;
+    width: 400px;
+    height: 300px;
+    border: 1px solid gray;
+}
+
+.google-signIn{
+    margin-top: 20px;
+    width: 300px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    background-color: honeydew;
+    color: gray;
+}
+.google-btn{
+    margin-left: 40px;
+   
+
+}

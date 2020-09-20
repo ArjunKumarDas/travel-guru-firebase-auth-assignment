@@ -1,0 +1,36 @@
+.logo {
+    margin-left: 100px;
+    width: 100px;
+    height: 50px;
+}
+/* .background-image  {
+    background-image: url('../../images/background-image.png');
+    background-repeat: no-repeat;
+    height: 600px;
+    background-size: cover;
+   
+} */
+
+.full-container {
+   
+    padding-top: 150px;
+    padding-right: 30px;
+}
+.historical-place{
+    display: flex;
+    float: right;
+}
+.manu{
+    color: black;
+    font-weight: 600;
+    padding-right: 200px;
+}
+.manu:hover {
+  
+    color: black;
+    font-weight: 600;
+    padding-right: 200px;
+}
+.text {
+    color: aliceblue;
+}
