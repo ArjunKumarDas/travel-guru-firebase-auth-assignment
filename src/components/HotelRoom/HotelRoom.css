@@ -1,7 +1,24 @@
 .room-info{
-    width: 60%;
+    width: 700px;
+    float: left;
 }
 
 .info{
+    width: 300px;
     float: left;
+}
+.capacity{
+    color: gray;
+}
+.rating{
+    float: left;
+   
+}
+.price{
+   padding-left: 50px;
+}
+.title{
+ text-align: justify;
+  font-size: medium;
+  color: black;
 }

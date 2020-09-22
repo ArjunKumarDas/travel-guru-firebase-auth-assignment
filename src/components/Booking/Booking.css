@@ -41,3 +41,9 @@
 .date2{
     margin-left: 10px;
 }
+.from{
+    float: left;
+}
+.to{
+    padding-left: 5px;
+}

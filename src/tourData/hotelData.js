@@ -10,7 +10,7 @@ const hotelData = [
    {
        id: '2',
        roomImg:'https://media.nomadicmatt.com/hotelreview1a.jpg',
-       title: 'Light bright airy stylis apt & safe peaceful stay',
+       title: 'Apartment in Lost Panorama',
        capacity: '4 gustets, 2 bedrooms, wifi Air consition and kitchen  Cancellation flexibity available',
        rating: '*4.9(20)',
        price: '$34/',
@@ -18,7 +18,7 @@ const hotelData = [
    {
        id: '3',
        roomImg:'https://i2.wp.com/thepointsguy.com/wp-content/uploads/2020/02/AC-Hotel-Park-City.jpg?fit=1440%2C960px&ssl=1',
-       title: 'Light bright airy stylis apt & safe peaceful stay',
+       title: 'AR Lounge & Pool {r&r + b&b}',
        capacity: '4 gustets, 2 bedrooms, wifi Air consition and kitchen  Cancellation flexibity available',
        rating: '*4.9(20)',
        price: '$34/',

@@ -6,10 +6,11 @@ const Places = (props) => {
     return (
         <div className="place-bg">
             <img className="img-radius" src={img} alt=""/>
-            <br/>
-            <h4 className="text-dark">{place}</h4>
+            <h4 className="text">{place}</h4>
         </div>
     );
 };
 
 export default Places;
+
+

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from '../../firebase.config';
@@ -6,13 +6,19 @@ import './Login.css'
 import { Link } from 'react-router-dom';
 import FacebookLogin from './FacebookLogin';
 import GoogleLogin from './GoogleLogin';
+import { UserContext } from '../../App';
+// import {UserContext} from '../../App'
 // import FacebookLogin from '../FacebookLogin/FacebookLogin';
 // import FacebookLogin from './FacebookLogin';
 // import StayInfo from '../StayInfo/StayInfo';
 // import { Link } from 'react-router-dom';
 
-firebase.initializeApp(firebaseConfig);
+// firebase.initializeApp(firebaseConfig);
 const Login = () => {
+    if(firebase.apps.length === 0){
+        firebase.initializeApp(firebaseConfig);
+    }
+    const [loggedInUser, setLoggedInUser] = UserContext(UserContext);
     //   ------ ----- Email state declear -------------//
     const [newUser, setNewUser] = useState(false);
     const [user, setUser] = useState({
@@ -52,7 +58,9 @@ const Login = () => {
                     newUserInfo.sucess = true;
                     setUser(newUserInfo);
                     upddateUserName(user.name);
-                   
+                //    const {displayName, email} = res.user;
+                //    const loggedInUser = {name: displayName, email}
+                //    setLoggedInUser(signedInUser)
                 })
                 .catch(error => {
                     // Handle Errors here.

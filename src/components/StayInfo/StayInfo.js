@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import HotelRoom from '../HotelRoom/HotelRoom';
 import hotelData from '../../tourData/hotelData';
 import './StayInfo.css';
+import GoogleMap from '../GoogleMap/GoogleMap';
 
 
 // import React, { useState } from 'react';
@@ -9,16 +10,6 @@ import './StayInfo.css';
 // import tourData from '../../../tourData/tourData';
 // import Places from '../../Places/Places';
 // import './Home.css';
-
-
-
-
-
-
-
-
-
-
 
 
 const StayInfo = () => {
@@ -33,7 +24,7 @@ const StayInfo = () => {
                 }
             </div>
             <div className="map-info">
-
+              <GoogleMap></GoogleMap>
             </div>
         </div>
     );

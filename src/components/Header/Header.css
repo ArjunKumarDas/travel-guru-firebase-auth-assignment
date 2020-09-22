@@ -21,16 +21,27 @@
     float: right;
 }
 .manu{
-    color: black;
+    
     font-weight: 600;
     padding-right: 200px;
 }
 .manu:hover {
   
-    color: black;
+   
     font-weight: 600;
     padding-right: 200px;
 }
-.text {
-    color: aliceblue;
+
+
+.text-color{
+    padding: 5px;
+    color: cornsilk;
+    margin-right: 30px;
+}
+.text-color:hover{
+  border-radius: 5px;
+   background-color: rgb(158, 84, 0);
+   text-decoration: none;
+   color: black;
+
 }

@@ -1,20 +1,23 @@
 import React from 'react';
 import './HotelRoom.css'
 
+
 const HotelRoom = (props) => {
-    const {title, roomImg, capacity, rating, price} = props.room;
+    const { title, roomImg, capacity, rating, price } = props.room;
     return (
-        <div className="room-info">
-                   <div className="info">
-                      <img src={roomImg} alt=""/>
-                   </div>
-            <div className="info">
-                 <p>{title}</p>
-                 <p>{capacity}</p>
-                 <p>{rating}</p>
-                 <p>{price}</p>
+      
+            <div className="room-info">
+                <div className="info">
+                   <p> <img src={roomImg} alt="" /></p>
+                </div>
+                <div className="info">
+                    <p className="title">{title}</p>
+                    <p className="capacity">{capacity}</p>
+                    <p className="rating">{rating} <span className="price">{price}</span></p>
+                    
+                </div>
             </div>
-        </div>
+         
     );
 };
 
