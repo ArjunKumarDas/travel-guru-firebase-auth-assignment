@@ -25,7 +25,7 @@ const Booking = () => {
                          <p>{calender}</p>
                     </div>
                 </div>
-                <Link to="/login"><button className="button">Start Booking</button></Link>
+                <Link to="/stayinfo"><button className="button">Start Booking</button></Link>
             </div>
         </div>
     );

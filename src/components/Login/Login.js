@@ -4,6 +4,8 @@ import "firebase/auth";
 import firebaseConfig from '../../firebase.config';
 import './Login.css'
 import { Link } from 'react-router-dom';
+import FacebookLogin from './FacebookLogin';
+import GoogleLogin from './GoogleLogin';
 // import FacebookLogin from '../FacebookLogin/FacebookLogin';
 // import FacebookLogin from './FacebookLogin';
 // import StayInfo from '../StayInfo/StayInfo';
@@ -22,51 +24,6 @@ const Login = () => {
         sucess: false
     })
 
-    
-
-    // Facebook firebase auth provider
-    const fbProvider = new firebase.auth.FacebookAuthProvider();
-    const hnadleFbLogIn = () => {
-        firebase.auth().signInWithPopup(fbProvider).then(function(result) {
-            // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-            var token = result.credential.accessToken;
-            // The signed-in user info.
-            var user = result.user;
-            // ...
-          }).catch(function(error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            // The email of the user's account used.
-            var email = error.email;
-            // The firebase.auth.AuthCredential type that was used.
-            var credential = error.credential;
-            // ...
-          });
-    }
-
-
-
-// Google  firebase auth provider
-const provider = new firebase.auth.GoogleAuthProvider();
-
-    const handleSignIn = () => {
-        firebase.auth().signInWithPopup(provider)
-            .then(res => {
-                const { displayName, email } = res.user;
-                const signedInUser = {
-                    isSignedIn: true,
-                    name: displayName,
-                    email: email
-                }
-                setUser(signedInUser);
-                console.log(displayName, email);
-            })
-            .catch(err => {
-                console.log(err);
-                console.log(err.meassage);
-            })
-    }
     // Gmail From validation 
     const handleBlur = (e) => {
         let isFormVailed = true;
@@ -176,23 +133,8 @@ const provider = new firebase.auth.GoogleAuthProvider();
                 </div>
             </div>
             <div className="google-fb">
-                <p></p>
-                {/* {
-                  user.isSignedIn ? <Link to="/stayinfo"><StayInfo></StayInfo></Link> : <p className="google-btn"><button onClick={handleSignIn} className="google-signIn">Continue with Google</button></p>
-                } */}
-                {
-                    user.isSignedIn ? <p className="google-btn"><button onClick={handleSignIn} className="google-signIn"> out</button></p> : <p className="google-btn"><button onClick={handleSignIn} className="google-signIn">Continue with Google</button></p>
-                }
-
-
-                {
-                    user.isSignedIn && <div>
-                        <p> Welcome, {user.name}</p>
-                    </div>
-                }
-                 {/* facebook login */}
-                <p className="google-btn"><button onClick={hnadleFbLogIn} className="google-signIn">Continue with Facebook</button></p>
-                 {/* <p><FacebookLogin></FacebookLogin></p> */}
+                <p><GoogleLogin></GoogleLogin></p>
+                 <p><FacebookLogin></FacebookLogin></p>
             </div>
         </div>
     );
