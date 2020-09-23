@@ -13,6 +13,7 @@ import {
 } from "react-router-dom";
 import NotFound from './components/NotFound/NotFound';
 import StayInfo from './components/StayInfo/StayInfo';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 export const UserContext = createContext();
 
@@ -21,7 +22,6 @@ function App() {
   return (
 
       <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
-        {/* <p>name{loggedInUser.name}</p> */}
       <Router>
         <Header></Header>
          <Switch>
@@ -37,9 +37,9 @@ function App() {
             <Route path="/login">
                <Login></Login>
             </Route>
-            <Route path="/stayinfo">
+            <PrivateRoute path="/stayinfo"> 
                 <StayInfo></StayInfo>
-            </Route>
+            </PrivateRoute>
             <Route path="*">
                 <NotFound></NotFound>
             </Route>

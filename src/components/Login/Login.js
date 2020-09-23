@@ -1,24 +1,13 @@
 import React, { useContext, useState } from 'react';
-import * as firebase from "firebase/app";
-import "firebase/auth";
-import firebaseConfig from '../../firebase.config';
-import './Login.css'
-import { Link } from 'react-router-dom';
-import FacebookLogin from './FacebookLogin';
-import GoogleLogin from './GoogleLogin';
-import { UserContext } from '../../App';
-// import {UserContext} from '../../App'
-// import FacebookLogin from '../FacebookLogin/FacebookLogin';
-// import FacebookLogin from './FacebookLogin';
-// import StayInfo from '../StayInfo/StayInfo';
-// import { Link } from 'react-router-dom';
 
-// firebase.initializeApp(firebaseConfig);
+import './Login.css'
+import { Link, useHistory, useLocation } from 'react-router-dom';
+import { UserContext } from '../../App';
+import { initializeLoginFramwork, handleGoogleSignIn, handleSignOut, handleFbSignIn, createUserWithEmailAndPassword, signInWithEmailAndPassword } from './FirebaseInfo';
+
+
 const Login = () => {
-    if(firebase.apps.length === 0){
-        firebase.initializeApp(firebaseConfig);
-    }
-    const [loggedInUser, setLoggedInUser] = UserContext(UserContext);
+   
     //   ------ ----- Email state declear -------------//
     const [newUser, setNewUser] = useState(false);
     const [user, setUser] = useState({
@@ -27,9 +16,39 @@ const Login = () => {
         email: '',
         password: '',
         error: '',
-        sucess: false
+        success: false
     })
+     
+    initializeLoginFramwork();
+    
+const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+const history = useHistory() ;
+const location = useLocation();
+const { from } = location.state || { from: { pathname: "/" } };
 
+// Google Sign In
+const googleSignIn = () =>{
+    handleGoogleSignIn() 
+    .then (res => {
+     userResponse(res, true);
+    })
+}
+
+// Fb sign In
+const fbSignIn = () =>{
+    handleFbSignIn()
+    .then(res =>{
+    userResponse(res, true);
+    })
+}
+
+const userResponse = (res, redirect) => {
+    setUser(res);
+    setLoggedInUser(res)
+    if(redirect){
+        history.replace(from);
+    }
+}
     // Gmail From validation 
     const handleBlur = (e) => {
         let isFormVailed = true;
@@ -51,56 +70,21 @@ const Login = () => {
     const handleSubmit = (e) => {
         // console.log(user.email, user.password);
         if (user.email && user.password) {
-            firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
-                .then(res => {
-                    const newUserInfo = { ...user };
-                    newUserInfo.error = '';
-                    newUserInfo.sucess = true;
-                    setUser(newUserInfo);
-                    upddateUserName(user.name);
-                //    const {displayName, email} = res.user;
-                //    const loggedInUser = {name: displayName, email}
-                //    setLoggedInUser(signedInUser)
-                })
-                .catch(error => {
-                    // Handle Errors here.
-                    const newUserInfo = { ...user };
-                    newUserInfo.error = error.meassage;
-                    newUserInfo.sucess = false;
-                    setUser(newUserInfo);
-                    // ...
-                });
-                if (!newUser && user.email && user.password){
-                    firebase.auth().signInWithEmailAndPassword(user.email, user.password)
-                    .then(res => {
-                        const newUserInfo = {...user};
-                        newUserInfo.error ='';
-                        newUserInfo.sucess = true;
-                        setUser(newUserInfo);
-                        // console.log('sign in info', res.user);
-                    })
-                    .catch(function(error) {
-                    const newUserInfo = { ...user };
-                    newUserInfo.error = error.meassage;
-                    newUserInfo.sucess = false;
-                    setUser(newUserInfo);
-                      });
-                }
+           createUserWithEmailAndPassword(user.name, user.name, user.password)
+           .then(res => {
+           userResponse(res, true);
+           })
+            }
+      if (!newUser && user.email && user.password){
+           signInWithEmailAndPassword(user.email, user.password)
+           .then(res => {
+            setUser(res);
+            userResponse(res, true);
+        })
         }
         e.preventDefault();
     }
-    const upddateUserName = name => {
-        const user = firebase.auth().currentUser;
 
-        user.updateProfile({
-            displayName: name,
-            
-        }).then(function () {
-           console.log('update name');
-        }).catch(function (error) {
-            console.log(error);
-        });
-    }
     return (
         <div className="login">
             <div className="gmail-part">
@@ -118,12 +102,8 @@ const Login = () => {
                         <input type="text" name="email" onChange={handleBlur} placeholder="User Name or Email" required />
                         <br />
                         <input type="password" name="password" onChange={handleBlur} placeholder="password" required />
-                        <br />
-                        {/* <p>Reember Me  <span> Forget password</span></p> */}
-                        <br />
-                        {/* {
-                            newUser ? <input type="submit" value="Create an account" /> : <input type="submit" value="Login" />
-                        } */}
+                        <br/>
+                      
                         <input type="submit" value={ newUser ? 'Create an account' : 'Login'}/>
                         <br />
                         <div>
@@ -136,16 +116,25 @@ const Login = () => {
                     </form>
                     <p style={{ color: 'red' }}>{user.error}</p>
                     {
-                        user.sucess && <p style={{ color: 'green' }}>User {newUser ? 'Create an acccount' : 'Logged in '} sucessfully</p>
+                        user.success && <p style={{ color: 'green' }}>User {newUser ? 'Create an acccount' : 'Logged in '} sucessfully</p>
                     }
                 </div>
             </div>
             <div className="google-fb">
-                <p><GoogleLogin></GoogleLogin></p>
-                 <p><FacebookLogin></FacebookLogin></p>
+                <div> 
+                {
+                    user.isSignedIn ? <p className="google-btn"><button onClick={googleSignIn} className="google-signIn">Sign Out</button></p> : <p className="google-btn"><button onClick={googleSignIn} className="google-signIn">Continue with Google</button></p>
+                }
+                 </div>
+                 <p className="google-btn"><button onClick={fbSignIn} className="google-signIn">Continue with Facebook</button></p>
             </div>
         </div>
     );
 };
 
 export default Login;
+
+
+
+
+

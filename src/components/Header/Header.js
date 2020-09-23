@@ -14,11 +14,11 @@ const Header = () => {
            <FormControl type="text" placeholder="Search your Destination" />
         </Form>
         <Nav className="manu">
-            <Link href="/news" className="text-color">News</Link>
-            <Link href="/stayinfo" className="text-color">Destination</Link>
-            <Link href="/blog " className="text-color">Blog</Link>
-            <Link href="/booking" className="text-color">Contact</Link>
-            <Link href="/login" className="text-color">Login</Link>
+            <Link to="/news" className="text-color">News</Link>
+            <Link to="/stayinfo" className="text-color">Destination</Link>
+            <Link to="/blog " className="text-color">Blog</Link>
+            <Link to="/booking" className="text-color">Contact</Link>
+            <Link to="/login" className="text-color">Login</Link>
         </Nav>
       </Navbar>
       </div>

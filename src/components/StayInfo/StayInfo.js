@@ -5,13 +5,6 @@ import './StayInfo.css';
 import GoogleMap from '../GoogleMap/GoogleMap';
 
 
-// import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
-// import tourData from '../../../tourData/tourData';
-// import Places from '../../Places/Places';
-// import './Home.css';
-
-
 const StayInfo = () => {
     const frist3 =  hotelData.slice(0,3);
     const [roomes, setRooms] = useState(frist3);
