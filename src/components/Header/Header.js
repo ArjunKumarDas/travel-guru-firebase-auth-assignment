@@ -5,20 +5,21 @@ import { Button, Form, FormControl, Nav, Navbar, NavbarBrand, NavLink } from 're
 import { Link } from 'react-router-dom';
 
 const Header = () => {
+  
     return (
-    <div className="text">
+    <div className="m-top">
       <Navbar bg="transparent" variant="light" fixed="top">
             <Navbar.Brand href="#home"><img className="logo" src={img} alt="" /></Navbar.Brand>
         
         <Form className="mr-auto" >
            <FormControl type="text" placeholder="Search your Destination" />
         </Form>
-        <Nav className="manu">
-            <Link to="/news" className="text-color">News</Link>
-            <Link to="/stayinfo" className="text-color">Destination</Link>
-            <Link to="/blog " className="text-color">Blog</Link>
-            <Link to="/booking" className="text-color">Contact</Link>
-            <Link to="/login" className="text-color">Login</Link>
+        <Nav className="manu d-flex justify-content-end">
+            <Link  to="/news" className="manu-text ActiveClass">News</Link>
+            <Link to="/stayinfo" className=" manu-text">Destination</Link>
+            <Link to="/blog " className=" manu-text">Blog</Link>
+            <Link to="/booking" className=" manu-text">Contact</Link>
+            <Link to="/login" className=" manu-text">Login</Link>
         </Nav>
       </Navbar>
       </div>
@@ -26,3 +27,4 @@ const Header = () => {
 };
 
 export default Header;
+

@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react';
 import './Login.css'
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { UserContext } from '../../App';
-import { initializeLoginFramwork, handleGoogleSignIn, handleSignOut, handleFbSignIn, createUserWithEmailAndPassword, signInWithEmailAndPassword } from './FirebaseInfo';
+import { initializeLoginFramwork, handleGoogleSignIn, handleFbSignIn, createUserWithEmailAndPassword, signInWithEmailAndPassword } from './FirebaseInfo';
 
 
 const Login = () => {
@@ -68,9 +68,8 @@ const userResponse = (res, redirect) => {
         }
     }
     const handleSubmit = (e) => {
-        // console.log(user.email, user.password);
         if (user.email && user.password) {
-           createUserWithEmailAndPassword(user.name, user.name, user.password)
+           createUserWithEmailAndPassword(user.name, user.email, user.password)
            .then(res => {
            userResponse(res, true);
            })
@@ -94,30 +93,25 @@ const userResponse = (res, redirect) => {
                             newUser ? <h4>Create an account</h4> : <h4>Login</h4>
                         }
                         <br />
-                        {newUser && <div><input name="name" type="text" onBlur={handleBlur} placeholder="First Name" />
+                        {newUser && <div><input className="border-bottom" name="name" type="text" onBlur={handleBlur} placeholder="First Name" />
                             <br />
-                            <input name="name" type="text" onBlur={handleBlur} placeholder="Last Name" /></div>
+                            <input className="border-bottom" name="name" type="text" onBlur={handleBlur} placeholder="Last Name" /></div>
                         }
 
-                        <input type="text" name="email" onChange={handleBlur} placeholder="User Name or Email" required />
+                        <input className="border-bottom" type="text" name="email" onChange={handleBlur} placeholder="User Name or Email" required />
                         <br />
-                        <input type="password" name="password" onChange={handleBlur} placeholder="password" required />
+                        <input className="border-bottom" type="password" name="password" onChange={handleBlur} placeholder="password" required />
                         <br/>
                       
-                        <input type="submit" value={ newUser ? 'Create an account' : 'Login'}/>
+                        <input className="button" type="submit" value={ newUser ? 'Create an account' : 'Login'}/>
                         <br />
                         <div>
                             {
-                                newUser ? <div>Already have an account<Link onClick={() => setNewUser(!newUser)}>Login</Link></div> : <div>Don't have an acount ? <Link onClick={() => setNewUser(!newUser)}>Create an account</Link></div>
+                                newUser ? <div>Already have an account ? <buttton onClick={() => setNewUser(!newUser)}><span className="p-left">Login</span></buttton></div> : <div>Don't have an acount ? <buttton onClick={() => setNewUser(!newUser)} className="p-left">Create an account</buttton></div>
 
                             }
-
                         </div>
                     </form>
-                    <p style={{ color: 'red' }}>{user.error}</p>
-                    {
-                        user.success && <p style={{ color: 'green' }}>User {newUser ? 'Create an acccount' : 'Logged in '} sucessfully</p>
-                    }
                 </div>
             </div>
             <div className="google-fb">
@@ -133,8 +127,3 @@ const userResponse = (res, redirect) => {
 };
 
 export default Login;
-
-
-
-
-

@@ -1,9 +1,10 @@
 import React, { createContext, useState } from 'react';
-
 import Header from './components/Header/Header';
 import Home from './components/Header/Home/Home';
 import Booking from './components/Booking/Booking';
 import Login from './components/Login/Login';
+import StayInfo from './components/StayInfo/StayInfo';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 import {
   BrowserRouter as Router,
@@ -11,12 +12,9 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import NotFound from './components/NotFound/NotFound';
-import StayInfo from './components/StayInfo/StayInfo';
-import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+
 
 export const UserContext = createContext();
-
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
   return (
@@ -40,9 +38,6 @@ function App() {
             <PrivateRoute path="/stayinfo"> 
                 <StayInfo></StayInfo>
             </PrivateRoute>
-            <Route path="*">
-                <NotFound></NotFound>
-            </Route>
          </Switch>
       </Router>
       </UserContext.Provider>

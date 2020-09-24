@@ -8,3 +8,18 @@
     background-position: center;
   
 }
+.slect-place {
+    color: cornsilk;
+    width: 34%;
+    float: left;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+.btn-booking{
+    border: none;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 10px 70px;
+    background-color: rgb(240, 149, 13);
+    color: cornsilk;
+}

@@ -8,6 +8,10 @@ const Booking = () => {
     const [startDate, setStartDate] = useState(new Date());
     return (
         <div className="full-container">
+            <div className="about-place"> 
+                <h1>Cox's Bazer</h1>
+                <p>Coxs Bazar is located 150 km (93 mi) south of the divisional headquarter city of Chittagong.Coxs Bazar town has an area of 6.85 km2 (2.64 sq mi), and is bounded by Bakkhali River on the north and East, Bay of Bengal in the West, and Jhilwanj Union in the south </p>
+            </div>
             <div className="booking-part">
                 <h6>Orgin</h6>
                 <input type="text" className="width" placeholder="Enter Your Orgin" />

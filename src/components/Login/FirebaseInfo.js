@@ -51,6 +51,7 @@ export const handleFbSignIn = () => {
 export const createUserWithEmailAndPassword = (name, email, password) =>{
    return firebase.auth().createUserWithEmailAndPassword(email, password)
     .then(res => {
+        console.log(res);
         const newUserInfo = res.user;
         newUserInfo.error = '';
         newUserInfo.success = true;
@@ -92,8 +93,4 @@ const upddateUserName = name => {
         console.log(error);
     });
 }
-
-
-
-
 

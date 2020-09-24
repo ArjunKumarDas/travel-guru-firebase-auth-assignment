@@ -8,9 +8,9 @@ const HotelRoom = (props) => {
       
             <div className="room-info">
                 <div className="info">
-                   <p> <img src={roomImg} alt="" /></p>
+                   <p > <img src={roomImg} alt="" /></p>
                 </div>
-                <div className="info">
+                <div className="info-d">
                     <p className="title">{title}</p>
                     <p className="capacity">{capacity}</p>
                     <p className="rating">{rating} <span className="price">{price}</span></p>
